@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "clientRequestToken": {
+                    "description": "A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "pattern": "^[\\w:/-]+$",
+                    "type": "string"
+                },
+                "projectId": {
+                    "description": "The ID of the project to which you will add the IAM user.",
+                    "maxLength": 15,
+                    "minLength": 2,
+                    "pattern": "^[a-z][a-z0-9-]+$",
+                    "type": "string"
+                },
+                "projectRole": {
+                    "description": "The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.",
+                    "pattern": "^(Owner|Viewer|Contributor)$",
+                    "type": "string"
+                },
+                "remoteAccessAllowed": {
+                    "description": "Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.",
+                    "type": "boolean"
+                },
+                "userArn": {
+                    "description": "The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.",
+                    "maxLength": 95,
+                    "minLength": 32,
+                    "pattern": "^arn:aws:iam::\\d{12}:user(?:(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F))[\\w+=,.@-]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "projectId",
+                "userArn",
+                "projectRole"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

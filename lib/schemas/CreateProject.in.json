@@ -1,0 +1,277 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "clientRequestToken": {
+                    "description": "A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "pattern": "^[\\w:/-]+$",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description of the project, if any.",
+                    "format": "password",
+                    "maxLength": 1024,
+                    "pattern": "^$|^\\S(.*\\S)?$",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID of the project to be created in AWS CodeStar.",
+                    "maxLength": 15,
+                    "minLength": 2,
+                    "pattern": "^[a-z][a-z0-9-]+$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The display name for the project to be created in AWS CodeStar.",
+                    "format": "password",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "pattern": "^\\S(.*\\S)?$",
+                    "type": "string"
+                },
+                "sourceCode": {
+                    "description": "A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.",
+                    "items": {
+                        "description": "Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.",
+                        "properties": {
+                            "destination": {
+                                "description": "The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.",
+                                "properties": {
+                                    "codeCommit": {
+                                        "description": "Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.",
+                                        "properties": {
+                                            "name": {
+                                                "description": "The name of the AWS CodeCommit repository to be created in AWS CodeStar.",
+                                                "maxLength": 100,
+                                                "minLength": 1,
+                                                "pattern": "^\\S[\\w.-]*$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "gitHub": {
+                                        "description": "Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.",
+                                        "properties": {
+                                            "description": {
+                                                "description": "Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.",
+                                                "maxLength": 1000,
+                                                "minLength": 1,
+                                                "pattern": "^\\S(.*\\S)?$",
+                                                "type": "string"
+                                            },
+                                            "issuesEnabled": {
+                                                "description": "Whether to enable issues for the GitHub repository.",
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "description": "Name of the GitHub repository to be created in AWS CodeStar.",
+                                                "maxLength": 100,
+                                                "minLength": 1,
+                                                "pattern": "^\\S[\\w.-]*$",
+                                                "type": "string"
+                                            },
+                                            "owner": {
+                                                "description": "The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.",
+                                                "maxLength": 100,
+                                                "minLength": 1,
+                                                "pattern": "^\\S(.*\\S)?$",
+                                                "type": "string"
+                                            },
+                                            "privateRepository": {
+                                                "description": "Whether the GitHub repository is to be a private repository.",
+                                                "type": "boolean"
+                                            },
+                                            "token": {
+                                                "description": "The GitHub user's personal access token for the GitHub repository.",
+                                                "format": "password",
+                                                "minLength": 1,
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "description": "The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.",
+                                                "pattern": "^(user|organization|User|Organization)$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "type",
+                                            "owner",
+                                            "privateRepository",
+                                            "issuesEnabled",
+                                            "token"
+                                        ],
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "source": {
+                                "description": "The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.",
+                                "properties": {
+                                    "s3": {
+                                        "description": "Information about the Amazon S3 location where the source code files provided with the project request are stored. ",
+                                        "properties": {
+                                            "bucketKey": {
+                                                "description": "The Amazon S3 object key where the source code files provided with the project request are stored.",
+                                                "type": "string"
+                                            },
+                                            "bucketName": {
+                                                "description": "The Amazon S3 bucket name where the source code files provided with the project request are stored.",
+                                                "maxLength": 63,
+                                                "minLength": 3,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "required": [
+                                    "s3"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "source",
+                            "destination"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "tags": {
+                    "description": "The tags created for the project.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            },
+                            "value": {
+                                "maxLength": 256,
+                                "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "toolchain": {
+                    "description": "The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.",
+                    "properties": {
+                        "roleArn": {
+                            "description": "The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.",
+                            "maxLength": 1224,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "source": {
+                            "description": "The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.",
+                            "properties": {
+                                "s3": {
+                                    "description": "The Amazon S3 bucket where the toolchain template file provided with the project request is stored.",
+                                    "properties": {
+                                        "bucketKey": {
+                                            "description": "The Amazon S3 object key where the source code files provided with the project request are stored.",
+                                            "type": "string"
+                                        },
+                                        "bucketName": {
+                                            "description": "The Amazon S3 bucket name where the source code files provided with the project request are stored.",
+                                            "maxLength": 63,
+                                            "minLength": 3,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "required": [
+                                "s3"
+                            ],
+                            "type": "object"
+                        },
+                        "stackParameters": {
+                            "description": "The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "maxLength": 30,
+                                        "minLength": 1,
+                                        "pattern": "^\\S(.*\\S)?$",
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "format": "password",
+                                        "maxLength": 100,
+                                        "minLength": 1,
+                                        "pattern": "^\\S(.*\\S)?$",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "maxItems": 25,
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "source"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "name",
+                "id"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

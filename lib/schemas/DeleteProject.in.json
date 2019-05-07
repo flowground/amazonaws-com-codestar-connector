@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "clientRequestToken": {
+                    "description": "A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request. ",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "pattern": "^[\\w:/-]+$",
+                    "type": "string"
+                },
+                "deleteStack": {
+                    "description": "Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "The ID of the project to be deleted in AWS CodeStar.",
+                    "maxLength": 15,
+                    "minLength": 2,
+                    "pattern": "^[a-z][a-z0-9-]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

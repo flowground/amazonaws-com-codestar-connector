@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "projectId": {
+                    "description": "The ID of the AWS CodeStar project from which you want to remove a team member.",
+                    "maxLength": 15,
+                    "minLength": 2,
+                    "pattern": "^[a-z][a-z0-9-]+$",
+                    "type": "string"
+                },
+                "userArn": {
+                    "description": "The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.",
+                    "maxLength": 95,
+                    "minLength": 32,
+                    "pattern": "^arn:aws:iam::\\d{12}:user(?:(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F))[\\w+=,.@-]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "projectId",
+                "userArn"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
