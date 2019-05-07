@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) AWS CodeStar MSP Connector
+# ![LOGO](logo.png) AWS CodeStar **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the AWS CodeStar API (version 2017-04-19).
+A generated **flow**ground connector for the AWS CodeStar API (version 2017-04-19).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/codestar/2017-04-19/swagger.json<br/>
-Generated at: 2019-05-07T11:15:34+03:00
+Generated at: 2019-05-07T17:35:13+03:00
 
 ## API Description
 
@@ -253,7 +253,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-codestar-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-codestar-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
