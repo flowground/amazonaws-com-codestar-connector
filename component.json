@@ -1,6 +1,6 @@
 {
     "title": "AWS CodeStar",
-    "description": "<fullname>AWS CodeStar</fullname> <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.</p> <p>You can use the AWS CodeStar API to work with:</p> <p>Projects and their resources, by calling the following:</p> <ul> <li> <p> <code>DeleteProject</code>, which deletes a project.</p> </li> <li> <p> <code>DescribeProject</code>, which lists the attributes of a project.</p> </li> <li> <p> <code>ListProjects</code>, which lists all projects associated with your AWS account.</p> </li> <li> <p> <code>ListResources</code>, which lists the resources associated with a project.</p> </li> <li> <p> <code>ListTagsForProject</code>, which lists the tags associated with a project.</p> </li> <li> <p> <code>TagProject</code>, which adds tags to a project.</p> </li> <li> <p> <code>UntagProject</code>, which removes tags from a project.</p> </li> <li> <p> <code>UpdateProject</code>, which updates the attributes of a project.</p> </li> </ul> <p>Teams and team members, by calling the following:</p> <ul> <li> <p> <code>AssociateTeamMember</code>, which adds an IAM user to the team for a project.</p> </li> <li> <p> <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a project.</p> </li> <li> <p> <code>ListTeamMembers</code>, which lists all the IAM users in the team for a project, including their roles and attributes.</p> </li> <li> <p> <code>UpdateTeamMember</code>, which updates a team member's attributes in a project.</p> </li> </ul> <p>Users, by calling the following:</p> <ul> <li> <p> <code>CreateUserProfile</code>, which creates a user profile that contains data associated with the user across all projects.</p> </li> <li> <p> <code>DeleteUserProfile</code>, which deletes all user profile information across all projects.</p> </li> <li> <p> <code>DescribeUserProfile</code>, which describes the profile of a user.</p> </li> <li> <p> <code>ListUserProfiles</code>, which lists all user profiles.</p> </li> <li> <p> <code>UpdateUserProfile</code>, which updates the profile for a user.</p> </li> </ul>",
+    "description": "AWS CodeStar This is the API reference for AWS CodeStar. This reference provides\ndescriptions of the operations and data types for the AWS CodeStar API along\nwith usage examples.\n\nYou can use the AWS CodeStar API to work with:\n\nProjects and their resources, by calling the following:\n\n *   DeleteProject, which deletes a project.\n   \n   \n *   DescribeProject, which lists the attributes of a project.\n   \n   \n *   ListProjects, which lists all projects associated with your AWS account.\n   \n   \n *   ListResources, which lists the resources associated with a project.\n   \n   \n *   ListTagsForProject, which lists the tags associated with a project.\n   \n   \n *   TagProject, which adds tags to a project.\n   \n   \n *   UntagProject, which removes tags from a project.\n   \n   \n *   UpdateProject, which updates the attributes of a project.\n   \n   \n\nTeams and team members, by calling the following:\n\n *   AssociateTeamMember, which adds an IAM user to the team for a project.\n   \n   \n *   DisassociateTeamMember, which removes an IAM user from the team for a\n   project.\n   \n   \n *   ListTeamMembers, which lists all the IAM users in the team for a project,\n   including their roles and attributes.\n   \n   \n *   UpdateTeamMember, which updates a team member's attributes in a project.\n   \n   \n\nUsers, by calling the following:\n\n *   CreateUserProfile, which creates a user profile that contains data\n   associated with the user across all projects.\n   \n   \n *   DeleteUserProfile, which deletes all user profile information across all\n   projects.\n   \n   \n *   DescribeUserProfile, which describes the profile of a user.\n   \n   \n *   ListUserProfiles, which lists all user profiles.\n   \n   \n *   UpdateUserProfile, which updates the profile for a user.",
     "docsUrl": "https://aws.amazon.com/codestar/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/codestar/2017-04-19/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "AssociateTeamMember": {
             "main": "./lib/actions/AssociateTeamMember.js",
-            "title": "Adds an IAM user to the team for an AWS CodeStar project.",
+            "title": "AssociateTeamMember",
             "description": "Adds an IAM user to the team for an AWS CodeStar project.",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "CreateProject": {
             "main": "./lib/actions/CreateProject.js",
-            "title": "Creates a project, including project resources. This action creates a project based on a submitted project request. A set of source code files and a toolchain template file can be included with the project request. If these are not provided, an empty project is created.",
+            "title": "CreateProject",
             "description": "Creates a project, including project resources. This action creates a project based on a submitted project request. A set of source code files and a toolchain template file can be included with the project request. If these are not provided, an empty project is created.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "CreateUserProfile": {
             "main": "./lib/actions/CreateUserProfile.js",
-            "title": "Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.",
+            "title": "CreateUserProfile",
             "description": "Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "DeleteProject": {
             "main": "./lib/actions/DeleteProject.js",
-            "title": "Deletes a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project.",
+            "title": "DeleteProject",
             "description": "Deletes a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project.",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "DeleteUserProfile": {
             "main": "./lib/actions/DeleteUserProfile.js",
-            "title": "Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.",
+            "title": "DeleteUserProfile",
             "description": "Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "DescribeProject": {
             "main": "./lib/actions/DescribeProject.js",
-            "title": "Describes a project and its resources.",
+            "title": "DescribeProject",
             "description": "Describes a project and its resources.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "DescribeUserProfile": {
             "main": "./lib/actions/DescribeUserProfile.js",
-            "title": "Describes a user in AWS CodeStar and the user attributes across all projects.",
+            "title": "DescribeUserProfile",
             "description": "Describes a user in AWS CodeStar and the user attributes across all projects.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "DisassociateTeamMember": {
             "main": "./lib/actions/DisassociateTeamMember.js",
-            "title": "Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.",
+            "title": "DisassociateTeamMember",
             "description": "Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "ListProjects": {
             "main": "./lib/actions/ListProjects.js",
-            "title": "Lists all projects in AWS CodeStar associated with your AWS account.",
+            "title": "ListProjects",
             "description": "Lists all projects in AWS CodeStar associated with your AWS account.",
             "fields": {
                 "verbose": {
@@ -191,7 +191,7 @@
         },
         "ListResources": {
             "main": "./lib/actions/ListResources.js",
-            "title": "Lists resources associated with a project in AWS CodeStar.",
+            "title": "ListResources",
             "description": "Lists resources associated with a project in AWS CodeStar.",
             "fields": {
                 "verbose": {
@@ -208,7 +208,7 @@
         },
         "ListTagsForProject": {
             "main": "./lib/actions/ListTagsForProject.js",
-            "title": "Gets the tags for a project.",
+            "title": "ListTagsForProject",
             "description": "Gets the tags for a project.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "ListTeamMembers": {
             "main": "./lib/actions/ListTeamMembers.js",
-            "title": "Lists all team members associated with a project.",
+            "title": "ListTeamMembers",
             "description": "Lists all team members associated with a project.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "ListUserProfiles": {
             "main": "./lib/actions/ListUserProfiles.js",
-            "title": "Lists all the user profiles configured for your AWS account in AWS CodeStar.",
+            "title": "ListUserProfiles",
             "description": "Lists all the user profiles configured for your AWS account in AWS CodeStar.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "TagProject": {
             "main": "./lib/actions/TagProject.js",
-            "title": "Adds tags to a project.",
+            "title": "TagProject",
             "description": "Adds tags to a project.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "UntagProject": {
             "main": "./lib/actions/UntagProject.js",
-            "title": "Removes tags from a project.",
+            "title": "UntagProject",
             "description": "Removes tags from a project.",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "UpdateProject": {
             "main": "./lib/actions/UpdateProject.js",
-            "title": "Updates a project in AWS CodeStar.",
+            "title": "UpdateProject",
             "description": "Updates a project in AWS CodeStar.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "UpdateTeamMember": {
             "main": "./lib/actions/UpdateTeamMember.js",
-            "title": "Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.",
+            "title": "UpdateTeamMember",
             "description": "Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "UpdateUserProfile": {
             "main": "./lib/actions/UpdateUserProfile.js",
-            "title": "Updates a user's profile in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar. ",
+            "title": "UpdateUserProfile",
             "description": "Updates a user's profile in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar. ",
             "fields": {
                 "verbose": {
